@@ -68,6 +68,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 
+	b, err := json.Marshal(products)
 	//// TODO
 	//// Add code to convert the product variable declared above into a json
 	//// You can use the Marshal function of the json package
