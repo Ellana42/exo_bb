@@ -55,15 +55,18 @@ const App = () => {
     // Updating corresponding quantities in availableProducts and inCartProducts 
     const onAddToCart = (productId) => {
         const availableBeforeAdd = availableProducts[productId]
-        setAvailableProducts({
-            ...availableProducts,
-            [productId]: availableBeforeAdd - 1,
-        })
-        const inCartBeforeAdd = inCartProducts[productId]
-        setInCartProducts({
-            ...inCartProducts,
-            [productId]: inCartBeforeAdd + 1,
-        })
+		if (availableBeforeAdd > 0) 
+		{
+			setAvailableProducts({
+				...availableProducts,
+				[productId]: availableBeforeAdd - 1,
+			})
+			const inCartBeforeAdd = inCartProducts[productId]
+			setInCartProducts({
+				...inCartProducts,
+				[productId]: inCartBeforeAdd + 1,
+			})
+		}
     }
 
 	// Remove a product from cart 
