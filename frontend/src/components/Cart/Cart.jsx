@@ -10,6 +10,7 @@ const Cart = (props) => {
                         <th scope="col">Item</th>
                         <th scope="col">Quantity</th>
                         <th scope="col">Price</th>
+                        <th scope="col">Remove</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -18,6 +19,17 @@ const Cart = (props) => {
                             <td>{product.name}</td>
                             <td>{props.inCartProducts[product.id]}</td>
                             <td>{product.price}$</td>
+							<td>
+								<button
+									onClick={() =>
+										//props.onAddToCart(product.id)
+										console.log("lala")
+									}
+									className="btn btn-primary"
+								>
+									Remove
+								</button>
+							</td>
                         </tr>
                     ))}
                 </tbody>
