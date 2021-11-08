@@ -72,15 +72,18 @@ const App = () => {
 	// Remove a product from cart 
     const onRemoveFromCart = (productId) => {
         const availableBeforeAdd = availableProducts[productId]
-        setAvailableProducts({
-            ...availableProducts,
-            [productId]: availableBeforeAdd + 1,
-        })
         const inCartBeforeAdd = inCartProducts[productId]
-        setInCartProducts({
-            ...inCartProducts,
-            [productId]: inCartBeforeAdd - 1,
-        })
+		if (inCartBeforeAdd > 0) 
+		{
+			setAvailableProducts({
+				...availableProducts,
+				[productId]: availableBeforeAdd + 1,
+			})
+			setInCartProducts({
+				...inCartProducts,
+				[productId]: inCartBeforeAdd - 1,
+			})
+		}
     }
     // What is displayed. 
     // Display the Shop component and the Cart component. 
