@@ -14,7 +14,7 @@ const Cart = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {props.products.map((product) => (
+                    {props.products.filter(product => props.inCartProducts[product.id] > 0).map((product) => (
                         <tr key={product.id}>
                             <td>{product.name}</td>
                             <td>{props.inCartProducts[product.id]}</td>
