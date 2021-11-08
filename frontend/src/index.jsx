@@ -83,7 +83,7 @@ const App = () => {
     // Display the Shop component and the Cart component. 
     return (
         <div className="d-flex justify-content-between">
-            <Shop products={products} onAddToCart={onAddToCart} />
+            <Shop products={products} availableProducts={availableProducts} onAddToCart={onAddToCart} />
             <Cart products={products} inCartProducts={inCartProducts} onRemoveFromCart={onRemoveFromCart} />
         </div>
     )

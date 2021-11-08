@@ -21,6 +21,7 @@ const Shop = (props) => {
                                     <div className="d-flex justify-content-between">
                                         <span>{product.name}</span>
                                         <span>{product.price}$</span>
+                                        <span>{props.availableProducts[product.id]} left</span>
                                     </div>
                                 </span>
                                 <div className="d-flex flex-column align-items-end mt-2">
