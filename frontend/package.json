@@ -19,7 +19,7 @@
     },
     "scripts": {
         "start": "npm run parcel:main",
-        "parcel:main": "parcel src/index.html --port 1234",
+        "parcel:main": "parcel src/index.html --port 1234"
     },
     "devDependencies": {
         "@types/node": "^12.12.14",
