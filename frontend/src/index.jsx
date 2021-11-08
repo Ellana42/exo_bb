@@ -70,6 +70,7 @@ const App = () => {
     }
 
 	// Remove a product from cart 
+    // Updating corresponding quantities in availableProducts and inCartProducts 
     const onRemoveFromCart = (productId) => {
         const availableBeforeAdd = availableProducts[productId]
         const inCartBeforeAdd = inCartProducts[productId]
