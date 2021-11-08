@@ -29,8 +29,6 @@ const App = () => {
         fetch('http://localhost:8080/products')
             .then((response) => response.json())
             .then((products) => {
-				console.log("Here")
-				console.log(products)
                 setProducts(products.products)
 
                 // Initialize availableProducts and cartProducts
@@ -44,11 +42,6 @@ const App = () => {
                 setAvailableProducts(initialAvailableProducts)
                 setInCartProducts(initialInCartProducts)
             })
-			.catch(e => {
-					console.log("in fetch");
-					console.log(e);
-			});
-
     }, [])
 
     // Add a product to cart. 
