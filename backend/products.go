@@ -88,6 +88,4 @@ func main() {
 
     http.Handle("/", http.HandlerFunc(Handler))
 	http.ListenAndServe(":8080", nil)
-	//// TODO
-	//// Add code to start a local web server at port 8080 that handles all requests with Handler
 }
