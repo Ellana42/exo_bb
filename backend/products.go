@@ -68,7 +68,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 
-	b, err := json.Marshal(products)
+	b, err := json.Marshal(ProductsResponse{products})
 
 	if err != nil {
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
