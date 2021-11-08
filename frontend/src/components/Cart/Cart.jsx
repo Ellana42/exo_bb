@@ -22,7 +22,7 @@ const Cart = (props) => {
                     ))}
                 </tbody>
             </table>
-            <span className="mx-auto">Total: {}$</span>
+            <span className="mx-auto">Total: {props.products.reduce((su, prod) => su = su + props.inCartProducts[prod.id] * prod.price, 0)}$</span>
         </div>
     )
 }
