@@ -22,8 +22,7 @@ const Cart = (props) => {
 							<td>
 								<button
 									onClick={() =>
-										//props.onAddToCart(product.id)
-										console.log("lala")
+										props.onRemoveFromCart(product.id)
 									}
 									className="btn btn-primary"
 								>

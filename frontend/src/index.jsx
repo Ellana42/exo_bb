@@ -29,6 +29,8 @@ const App = () => {
         fetch('http://localhost:8080/products')
             .then((response) => response.json())
             .then((products) => {
+				console.log("Here")
+				console.log(products)
                 setProducts(products.products)
 
                 // Initialize availableProducts and cartProducts
@@ -42,6 +44,11 @@ const App = () => {
                 setAvailableProducts(initialAvailableProducts)
                 setInCartProducts(initialInCartProducts)
             })
+			.catch(e => {
+					console.log("in fetch");
+					console.log(e);
+			});
+
     }, [])
 
     // Add a product to cart. 
@@ -59,12 +66,25 @@ const App = () => {
         })
     }
 
+	// Remove a product from cart 
+    const onRemoveFromCart = (productId) => {
+        const availableBeforeAdd = availableProducts[productId]
+        setAvailableProducts({
+            ...availableProducts,
+            [productId]: availableBeforeAdd + 1,
+        })
+        const inCartBeforeAdd = inCartProducts[productId]
+        setInCartProducts({
+            ...inCartProducts,
+            [productId]: inCartBeforeAdd - 1,
+        })
+    }
     // What is displayed. 
     // Display the Shop component and the Cart component. 
     return (
         <div className="d-flex justify-content-between">
             <Shop products={products} onAddToCart={onAddToCart} />
-            <Cart products={products} inCartProducts={inCartProducts} />
+            <Cart products={products} inCartProducts={inCartProducts} onRemoveFromCart={onRemoveFromCart} />
         </div>
     )
 }
