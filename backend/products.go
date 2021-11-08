@@ -69,11 +69,6 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 
 	b, err := json.Marshal(products)
-	//// TODO
-	//// Add code to convert the product variable declared above into a json
-	//// You can use the Marshal function of the json package
-	//// Don't forget to use the ProductsResponse structure
-	//// Should start with "b, err :="
 
 	if err != nil {
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
@@ -91,6 +86,8 @@ func main() {
 
 	fmt.Println("Starting server at port 8080. URL: http://localhost:8080/")
 
+    http.Handle("/", http.HandlerFunc(Handler))
+	http.ListenAndServe(":8080", nil)
 	//// TODO
 	//// Add code to start a local web server at port 8080 that handles all requests with Handler
 }
